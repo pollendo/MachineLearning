@@ -19,7 +19,7 @@ def gen_sine(n):
     return x, t
 
 
-def design_matrix(x, M):  # it is highly recommended to write a helper function that computes Phi
+def design_matrix(x, M):
     x0 = np.ones([len(x), 1])
     matrix = x0
     for i in range(0, M):
@@ -40,7 +40,6 @@ def plot_fitted_polynomials(x, t, M):
     weights, Phi = fit_polynomial(x, t, M)
     test_Phi = design_matrix(sin_wave, M)
     fit = test_Phi.dot(weights.T)
-    # fig = plt.figure()
     plt.title("Fitted polynomials for M =%i" % M)
     plt.xlabel("x")
     plt.ylabel("t")

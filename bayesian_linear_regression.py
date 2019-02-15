@@ -58,13 +58,8 @@ def plot_predictive_distribution():
     mean, covariance_S, design_matrix_Phi = fit_polynomial_bayes(x_values, y_values, order_m, alpha, beta)
     pred_mean, pred_S, pred_Phi = predict_polynomial_bayes(sin_wave, mean, covariance_S, beta)
 
-    # Plot data points
     plt.plot(x_values, y_values, linestyle="", marker='o', color='b', mfc='none', label="data")
-
-    # Plot predictive mean
     plt.plot(sin_wave, pred_mean, color='r', label="fit")
-
-    # Plot 1-sigma predictive variance
     plt.fill_between(sin_wave, pred_mean - pred_S, pred_mean + pred_S, color='blue', alpha=0.1, label="1-sigma-variance")
     pylab.legend(loc='lower left')
     plt.show()
